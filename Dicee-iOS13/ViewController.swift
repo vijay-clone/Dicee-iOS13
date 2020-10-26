@@ -10,11 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var leftImageView: UIImageView!
+    @IBOutlet weak var rightImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        leftImageView.image = UIImage(named: "1.png")
+        rightImageView.image = UIImage(named: "2.png")
     }
-
-
+    
+    @IBAction func rollOnPressed(_ sender: UIButton) {
+        let leftDice = Int.random(in: 1...6)
+        var rightDice = Int.random(in: 1...6)
+        if leftDice == rightDice{
+            rightDice = Int.random(in: 1...6)
+        }
+                leftImageView.image = UIImage(named: "\(leftDice).png")
+                rightImageView.image = UIImage(named: "\(rightDice).png")
+    }
+    
 }
 
